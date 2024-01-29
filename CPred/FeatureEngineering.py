@@ -520,6 +520,7 @@ def pad_values(dataframe, column_name):
 def feature_engineering(dataframe):
     dataframe = peptide_length(dataframe)
     dataframe = tryptic(dataframe)
+    dataframe["Tryptic"] = dataframe["Tryptic"].replace([True, False], [1, 0])
     dataframe = basic(dataframe)
     dataframe = acid(dataframe)
     dataframe = non_polar(dataframe)
@@ -548,10 +549,4 @@ def feature_engineering(dataframe):
     dataframe = elemental_comp_modifications(dataframe)
     dataframe = monoisotopic_mass(dataframe)
     dataframe = average_mass(dataframe)
-    return dataframe
-
-
-def data_prep_model(dataframe):
-    #dataframe["Fragmentation"] = dataframe["Fragmentation"].replace(["CID", "ETCID", "ETD", "ETHCD", "HCD"], [0, 1, 2, 3, 4])
-    dataframe["Tryptic"] = dataframe["Tryptic"].replace([True, False], [1, 0])
     return dataframe
