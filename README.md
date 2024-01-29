@@ -1,2 +1,3 @@
-<img src="https://github.com/compomics/DeepLC/raw/master/img/deeplc_logo.png"
+<img src="https://github.com/VilenneFrederique/CPred/blob/main/img/CPred%20Charge%20State%20Prediction%20for%20Modified%20and%20Unmodified%20Peptides%20in%20Electrospray%20Ionization%20(Logo).png"
 width="150" height="150" /> <br/><br/>
+
