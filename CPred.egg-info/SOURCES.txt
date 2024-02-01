@@ -1,3 +1,4 @@
+.gitattributes
 LICENSE.txt
 README.md
 pyproject.toml
