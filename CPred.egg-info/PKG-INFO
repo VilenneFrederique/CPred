@@ -11,7 +11,6 @@ Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 License-File: LICENSE.txt
 Requires-Dist: docutils
-Requires-Dist: requests<=0.4
 Requires-Dist: pandas>=2.2
 Requires-Dist: numpy>=1.26
 Requires-Dist: regex>=2023.12.25

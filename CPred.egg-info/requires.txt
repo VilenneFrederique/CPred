@@ -1,5 +1,4 @@
 docutils
-requests<=0.4
 pandas>=2.2
 numpy>=1.26
 regex>=2023.12.25

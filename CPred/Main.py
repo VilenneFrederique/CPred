@@ -1,6 +1,4 @@
 # Importing modules
-import numpy as np
-
 import FeatureEngineering
 import CPred_NN
 import pandas as pd

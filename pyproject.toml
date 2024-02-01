@@ -20,7 +20,6 @@ classifiers = [
 
 dependencies = [
     "docutils",
-    "requests <= 0.4",
     "pandas >= 2.2",
     "numpy >= 1.26",
     "regex >= 2023.12.25",
@@ -29,7 +28,7 @@ dependencies = [
     "scikit-learn >= 1.4",
     "keras_tuner >= 1.4.6"
 ]
-# ...
+
 
 [project.urls]
 Homepage = "https://github.com/VilenneFrederique/CPred"
