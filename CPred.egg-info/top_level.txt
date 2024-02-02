@@ -1,4 +1,1 @@
 CPred
-Python
-dist
-img

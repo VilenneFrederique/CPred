@@ -56,7 +56,8 @@ def main(command_line=None):
     ## Model
     retraining.add_argument("-m", "--model",
                             dest="model",
-                            required=True,
+                            required=False,
+                            default="",
                             help='Which model to use')
     ## Batch size
     retraining.add_argument("-bs", "--BatchSize",
@@ -74,13 +75,21 @@ def main(command_line=None):
     ####################################################################################################################
     ####################################################################################################################
     # Predicting
-    prediction = subparsers.add_parser("prediction", help="Predict using the CPred model")
+    prediction = subparsers.add_parser("prediction",
+                                       help="Predict using the CPred model")
     # Adding arguments
     ## Input
-    prediction.add_argument("-i", "--input", dest="input_directory", required=True, nargs="+",
+    prediction.add_argument("-i", "--input",
+                            dest="input_directory",
+                            required=True,
+                            nargs="+",
                             help='Give input data, only accepts a parquet file.')
     ## Model
-    prediction.add_argument("-m", "--model", dest="model", required=True, help='Which model to use')
+    prediction.add_argument("-m", "--model",
+                            dest="model",
+                            required=False,
+                            default = "",
+                            help='Which model to use')
     ## Output
     prediction.add_argument("-o", "--output", dest="output_directory", required=True, help="Saving the model results")
     ####################################################################################################################
