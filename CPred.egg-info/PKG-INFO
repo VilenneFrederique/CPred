@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: CPred
-Version: 0.0.1
+Version: 0.0.2
 Summary: CPred: A deep learning framework for predicting the charge state distribution in modified and unmodified peptides in ESI
 Author-email: Frédérique Vilenne <frederique.vilenne@uhasselt.be>
 License: Apache License

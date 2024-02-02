@@ -2,7 +2,6 @@
 LICENSE.txt
 README.md
 pyproject.toml
-.github/workflows/python-publish.yml
 .idea/.gitignore
 .idea/CPred.iml
 .idea/misc.xml
@@ -9381,6 +9380,4 @@ Python/venv/Scripts/rst2s5.py
 Python/venv/Scripts/rst2xetex.py
 Python/venv/Scripts/rst2xml.py
 Python/venv/Scripts/rstpep2html.py
-dist/CPred-0.0.1-py3-none-any.whl
-dist/CPred-0.0.1.tar.gz
 img/CPred Charge State Prediction for Modified and Unmodified Peptides in Electrospray Ionization (Logo).png
