@@ -9,9 +9,9 @@ pyproject.toml
 .idea/vcs.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/inspectionProfiles/profiles_settings.xml
+CPred/CPred.py
 CPred/CPred_NN.py
 CPred/FeatureEngineering.py
-CPred/Main.py
 CPred/__init__.py
 CPred.egg-info/PKG-INFO
 CPred.egg-info/SOURCES.txt
@@ -9380,4 +9380,3 @@ Python/venv/Scripts/rst2s5.py
 Python/venv/Scripts/rst2xetex.py
 Python/venv/Scripts/rst2xml.py
 Python/venv/Scripts/rstpep2html.py
-img/CPred Charge State Prediction for Modified and Unmodified Peptides in Electrospray Ionization (Logo).png
