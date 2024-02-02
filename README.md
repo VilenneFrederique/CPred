@@ -1,4 +1,4 @@
-<img src="https://github.com/VilenneFrederique/CPred/raw/master/img/CPred_logo.png"
+<img src="https://github.com/VilenneFrederique/CPred/blob/main/img/CPred_logo.png"
 width="450" height="300" /> <br/><br/>
 
 
