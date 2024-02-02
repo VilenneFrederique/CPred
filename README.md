@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/img/CPred%20Charge%20State%20Prediction%20for%20Modified%20and%20Unmodified%20Peptides%20in%20Electrospray%20Ionization%20(Logo).png"
+<img src="https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/img/CPred_logo.png"
 width="450" height="300" /> <br/><br/>
 
 
