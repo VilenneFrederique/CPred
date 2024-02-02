@@ -23,11 +23,17 @@ def main(command_line=None):
                           required=True,
                           nargs="+",
                           help='Give input data, this may either be an xlsx, csv or tsv file.')
+    ## Unimod modifications
+    # Features.add_argument("-m", "--modifications",
+    #                      dest="modifications_list",
+    #                      required=False,
+    #                      default="https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Unimod_modifications.xlsx",
+    #                      help='Potentially use your own list of modifications. (Default: Unimod_modifications.xlsx on Github')
     ## Output
     Features.add_argument("-o", "--output",
                           dest="output_file",
                           required=False,
-                          default= "Output_FeatureEnigineering",
+                          default="Output_FeatureEnigineering",
                           help="If you want to save the data with features, give a filename. (Default: Output_FeatureEnigineering)")
     ## Output directory
     Features.add_argument("-d", "--directory",
@@ -57,7 +63,7 @@ def main(command_line=None):
     retraining.add_argument("-m", "--model",
                             dest="model",
                             required=False,
-                            default="",
+                            default="https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Models/CPred_model_v1.keras",
                             help='Which model to use')
     ## Batch size
     retraining.add_argument("-bs", "--BatchSize",
@@ -88,7 +94,7 @@ def main(command_line=None):
     prediction.add_argument("-m", "--model",
                             dest="model",
                             required=False,
-                            default = "",
+                            default="https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Models/CPred_model_v1.keras",
                             help='Which model to use')
     ## Output
     prediction.add_argument("-o", "--output", dest="output_directory", required=True, help="Saving the model results")
@@ -103,6 +109,7 @@ def main(command_line=None):
             # Storing results
             output_filename = args.output_file
             output_directory = args.output_directory
+            os.makedirs(output_directory, exist_ok=True)
             output_format = args.output_format
             if output_format == "parquet":
                 data_features.to_parquet(f"{output_directory}{output_filename}.{output_format}", index=False)
@@ -121,6 +128,7 @@ def main(command_line=None):
             # Storing results
             output_filename = args.output_file
             output_directory = args.output_directory
+            os.makedirs(output_directory, exist_ok=True)
             output_format = args.output_format
             if output_format == "parquet":
                 data_features.to_parquet(f"{output_directory}{output_filename}.{output_format}", index=False)
@@ -138,6 +146,7 @@ def main(command_line=None):
             # Storing results
             output_filename = args.output_file
             output_directory = args.output_directory
+            os.makedirs(output_directory, exist_ok=True)
             output_format = args.output_format
             if output_format == "parquet":
                 data_features.to_parquet(f"{output_directory}{output_filename}.{output_format}", index=False)

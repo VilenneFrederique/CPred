@@ -4,10 +4,8 @@ import numpy as np
 import regex as re
 from tensorflow import keras
 
-
 # Reading data
-modifications_unimod = pd.read_excel("CPred/Data/Unimod_modifications.xlsx")
-
+modifications_unimod = pd.read_excel("https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Unimod_modifications.xlsx")
 
 # Dictionaries
 Isoelectric_point = {
@@ -101,124 +99,6 @@ ElementalComp = pd.DataFrame(ElementalComp)
 ElementalComp = ElementalComp.sort_values(by='Amino Acid')
 ElementalComp.set_index('Amino Acid', inplace=True)
 ElementalComp.index.name = 'Amino Acid'
-
-
-# Data preparation
-def data_prep(dataframe):
-    # Calculate the total count of each precursor_charge and Peptide_sequence combination
-    #grouped = dataframe.groupby(['Charge', 'Peptide_sequence', 'Fragmentation']).size().reset_index(name='count')
-    grouped = dataframe.groupby(['Charge', 'Peptide_sequence']).size().reset_index(name='count')
-    # Pivot the DataFrame to get the desired format
-    #pivot = grouped.pivot(index=['Peptide_sequence', 'Fragmentation'], columns='Charge', values='count').reset_index()
-    pivot = grouped.pivot(index=['Peptide_sequence'], columns='Charge', values='count').reset_index()
-    # Check if CS 1 to 7 exists
-    for charge_state in range(1, 8):
-        if charge_state not in pivot:
-            pivot[f"Count_charge_{charge_state}"] = np.nan
-        else:
-            pivot = pivot.rename(columns={charge_state: f"Count_charge_{charge_state}"})
-    # Fill missing values (if any) with zeros
-    pivot.fillna(int(float(0)), inplace=True)
-    # Calculate the total count of each Peptide_sequence
-    pivot['Total_count'] = pivot.loc[:, ['Count_charge_1', 'Count_charge_2', 'Count_charge_3', 'Count_charge_4', 'Count_charge_5', 'Count_charge_6', 'Count_charge_7']].sum(axis=1)
-
-    # Calculate the proportion for each precursor_charge
-    for charge in range(1, 8):
-        pivot[f'Proportion_charge_{charge}'] = pivot[f"Count_charge_{charge}"] / pivot['Total_count']
-
-    return pivot
-
-
-def modifications_reformatter_PT(dataframe):
-    dataframe["Modifications"] = np.nan
-    for index in range(len(dataframe)):
-        peptide_sequence = dataframe.loc[index, "Peptide_sequence"]
-        modifications_list = []
-        indexes = []
-        all_modifications = re.findall(pattern='[A-Z]?\(.*?\)|C', string=peptide_sequence)
-        for modification in all_modifications:
-            if modification == "C":
-                for index_sequence, amino_acid in enumerate(peptide_sequence):
-                    if amino_acid == "C":
-                        get_index = index_sequence + 1
-                        if get_index in indexes:
-                            pass
-                        else:
-                            indexes.append(get_index)
-                            modification_unimod = "Carbamidomethyl"
-                            modifications_list.append(f"{get_index}|{modification_unimod}")
-                            break
-                    else:
-                        pass
-
-            else:
-                get_index = peptide_sequence.index(modification)
-                if get_index != 0:
-                    get_index += 1
-                else:
-                    pass
-                indexes.append(get_index)
-                modification_string = re.findall(pattern='\(.*?\)', string=modification)[0]
-                if modification_string == "(tm)":
-                    modification_unimod = "TMT6plex"
-                elif modification_string == "(ox)":
-                    modification_unimod = "Oxidation"
-                elif modification_string == "(ac)":
-                    modification_unimod = "Acetylation"
-                elif modification_string == "(bi)":
-                    modification_unimod = "Biotin"
-                elif modification_string == "(bu)":
-                    modification_unimod = "Butyryl"
-                elif modification_string == "(cr)":
-                    modification_unimod = "Crotonyl"
-                elif modification_string == "(di)":
-                    modification_unimod = "Dimethyl"
-                elif modification_string == "(fo)":
-                    modification_unimod = "Formyl"
-                elif modification_string == "(gl)":
-                    modification_unimod = "Glutarylation"
-                elif modification_string == "(glgl)":
-                    modification_unimod = "GlyGlycylation"
-                elif modification_string == "(hy)":
-                    modification_unimod = "hydroxyisobutyryl"
-                elif modification_string == "(ma)":
-                    modification_unimod = "Malonyl"
-                elif modification_string == "(me)":
-                    modification_unimod = "Methyl"
-                elif modification_string == "(su)":
-                    modification_unimod = "Succinyl"
-                elif modification_string == "(tr)":
-                    modification_unimod = "Trimethyl"
-                elif modification_string == "(hyp)":
-                    modification_unimod = "Hydroxylation"
-                elif modification_string == "(ci)":
-                    modification_unimod = "Deamidated"
-                elif modification_string == "(ni)":
-                    modification_unimod = "Nitrotyrosine"
-                elif modification_string == "(ph)":
-                    modification_unimod = "Phospho"
-                elif modification_string == "(pr)":
-                    modification_unimod = "Propionyl"
-                else:
-                    print("Unaccounted modification found!")
-                    print(modification_string)
-                    modification_unimod = "Error"
-                peptide_sequence = peptide_sequence.replace(modification_string, "", 1)
-                dataframe.loc[index, "Peptide_sequence"] = peptide_sequence
-                modifications_list.append(f"{get_index}|{modification_unimod}")
-        if len(modifications_list) > 0:
-            modifications_merged = "@".join(modifications_list)
-        else:
-            modifications_merged = np.nan
-        dataframe.loc[index, "Modifications"] = modifications_merged
-    return dataframe
-
-
-def modifications_reformatter_phospho(dataframe):
-    for index in range(len(dataframe)):
-        modified_sequence = dataframe.loc[index, "ModifiedPeptideSequence"]
-        modifications = re.findall(pattern=r"\(UniMod:\d*\)", string=modified_sequence)
-
 
 
 # All functions related to feature engineering
