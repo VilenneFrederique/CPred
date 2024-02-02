@@ -1,5 +1,5 @@
 <img src="https://github.com/VilenneFrederique/CPred/blob/main/img/CPred_logo.png"
-width="450" height="300" /> <br/><br/>
+width="550" height="300" /> <br/><br/>
 
 
 [![GitHub release](https://flat.badgen.net/github/release/VilenneFrederique/CPred)](https://github.com/VilenneFrederique/CPred/releases/latest/)
