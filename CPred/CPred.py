@@ -1,13 +1,13 @@
 # Importing modules
-from CPred import FeatureEngineering
-from CPred import CPred_NN
+from CPred.FeatureEngineering import feature_engineering
+from CPred.CPred_NN import prediction_model, retraining_model
 import pandas as pd
 import os
 from argparse import ArgumentParser
 
 
 # Function
-def main():
+def main(command_line=None):
     # add main parser object
     parser = ArgumentParser(description="Charge state Prediction")
 
@@ -105,7 +105,7 @@ def main():
         input_file = args.input_file
         if input_file.endswith(".xlsx"):
             data = pd.read_excel(input_file)
-            data_features = FeatureEngineering.feature_engineering(dataframe=data)
+            data_features = feature_engineering(dataframe=data)
             # Storing results
             output_filename = args.output_file
             output_directory = args.output_directory
@@ -124,7 +124,7 @@ def main():
 
         elif input_file.endswith(".csv"):
             data = pd.read_csv(input_file)
-            data_features = FeatureEngineering.feature_engineering(dataframe=data)
+            data_features = feature_engineering(dataframe=data)
             # Storing results
             output_filename = args.output_file
             output_directory = args.output_directory
@@ -142,7 +142,7 @@ def main():
                 print("Unvalid file format provided!")
         elif input_file.endswith(".tsv"):
             data = pd.read_csv(input_file, sep="\t")
-            data_features = FeatureEngineering.feature_engineering(dataframe=data)
+            data_features = feature_engineering(dataframe=data)
             # Storing results
             output_filename = args.output_file
             output_directory = args.output_directory
@@ -159,19 +159,20 @@ def main():
             else:
                 print("Unvalid file format provided!")
         else:
-            print("Data was provided in an unsupported format. Please consult the documentation for valid formats or contact the developers to add additional formats on the corresponding GitHub page.")
+            print(
+                "Data was provided in an unsupported format. Please consult the documentation for valid formats or contact the developers to add additional formats on the corresponding GitHub page.")
             print("Feature engineering will now stop.")
 
     elif args.mode == "retraining":
-        CPred_NN.retraining_model(input_data=args.input_directory,
-                                  model_directory=args.model,
-                                  batch_size=args.batch_size,
-                                  learning_rate=args.learning_rate,
-                                  output_directory=args.output_directory)
+        retraining_model(input_data=args.input_directory,
+                         model_directory=args.model,
+                         batch_size=args.batch_size,
+                         learning_rate=args.learning_rate,
+                         output_directory=args.output_directory)
     elif args.mode == "prediction":
-        CPred_NN.prediction_model(input_data=args.input_directory,
-                                  model_directory=args.model,
-                                  output_directory=args.output_directory)
+        prediction_model(input_data=args.input_directory,
+                         model_directory=args.model,
+                         output_directory=args.output_directory)
     else:
         print("No action performed")
     return
