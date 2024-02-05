@@ -14,11 +14,10 @@ CPred: Charge State Prediction for Modified and Unmodified Peptides in Electrosp
 ---
 
 - [Introduction](#introduction)
-- [Usage](#usage)
-  - [Python package](#python-package)
-    - [Installation](#installation)
-    - [Command line interface](#command-line-interface)
-    - [Python module](#python-module)
+- [Installation](#installation)
+- [How to use](#How-to-use)
+  - [Python module](#Python-module)
+  - [Command line interface](#command-line-interface)
   - [Input files](#input-files)
   - [Prediction models](#prediction-models)
 - [Q&A](#qa)
@@ -36,8 +35,62 @@ generalising unseen modifications during training.
 The model is available as a Python package, installable through Pypi and conda.
 This also makes it possible to use from the command-line-interface.
 
+## Installation
+[![install with bioconda](https://flat.badgen.net/badge/install%20with/bioconda/green)](http://bioconda.github.io/recipes/CPred/README.html)
+[![install with pip](https://flat.badgen.net/badge/install%20with/pip/green)](http://bioconda.github.io/recipes/CPred/README.html)
+
+Install with conda, using the bioconda and conda-forge channels:
+`conda install -c bioconda -c conda-forge CPred`
+
+Or install with pip:
+`pip install CPred`
+
+
 ## How to use
+### Python module
+A reproducible example is shown in the tests folder. 
 
+```python
+from CPred import FeatureEngineering
+from CPred import CPred_NN
+import pandas as pd
 
-### Python package
+test_dictionary = {
+    "Peptide_sequence": ["PEPTIDE", "EDITPEP"],
+    "Modifications": ["1|Carbamidomethyl", "2|Oxidation"]
+}
 
+# Turn dictionary into a Pandas dataframe for feature engineering
+test_df = pd.DataFrame(test_dictionary)
+
+# Do feature engineering
+test_features = FeatureEngineering.feature_engineering(test_df)
+
+# Saving to parquet
+test_features.to_parquet(f"tests/tests_input/test.parquet", index=False)
+
+# Neural network predictions
+input_model = "tests/tests_input/test.parquet"
+model_directory = "CPred/Data/Models/CPred_model_v1.keras"
+output_directory = "tests/tests_output/"
+CPred_NN.prediction_model(input_model, model_directory, output_directory)
+```
+
+The feature_engineering function returns a pandas dataframe with the generated features. 
+As the CPred neural network requires the data in Parquet format, it is firstly saved.
+
+### Command-line interface
+In order to use CPred from the command-line interface, run:
+
+```sh
+CPred FeatureEngineering --i <path/to/data.xlsx>
+```
+
+We highly recommend to add a peptide file with known retention times for
+calibration:
+
+```sh
+CPred --file_pred  <path/to/peptide_file.csv> --file_cal <path/to/peptide_file_with_tr.csv>
+```
+
+For an overview of all CLI arguments, run `CPred --help`.

@@ -1,13 +1,13 @@
 # Importing modules
-import FeatureEngineering
-import CPred_NN
+from CPred import FeatureEngineering
+from CPred import CPred_NN
 import pandas as pd
 import os
 from argparse import ArgumentParser
 
 
 # Function
-def main(command_line=None):
+def main():
     # add main parser object
     parser = ArgumentParser(description="Charge state Prediction")
 
@@ -63,7 +63,7 @@ def main(command_line=None):
     retraining.add_argument("-m", "--model",
                             dest="model",
                             required=False,
-                            default="https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Models/CPred_model_v1.keras",
+                            default="CPred/Data/Models/CPred_model_v1.keras",
                             help='Which model to use')
     ## Batch size
     retraining.add_argument("-bs", "--BatchSize",
@@ -94,7 +94,7 @@ def main(command_line=None):
     prediction.add_argument("-m", "--model",
                             dest="model",
                             required=False,
-                            default="https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Models/CPred_model_v1.keras",
+                            default="CPred/Data/Models/CPred_model_v1.keras",
                             help='Which model to use')
     ## Output
     prediction.add_argument("-o", "--output", dest="output_directory", required=True, help="Saving the model results")

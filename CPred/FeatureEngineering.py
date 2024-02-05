@@ -5,7 +5,8 @@ import regex as re
 from tensorflow import keras
 
 # Reading data
-modifications_unimod = pd.read_excel("https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Unimod_modifications.xlsx")
+# modifications_unimod = pd.read_excel("https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Unimod_modifications.xlsx")
+modifications_unimod = pd.read_excel("CPred/Data/Unimod_modifications.xlsx")
 
 # Dictionaries
 Isoelectric_point = {

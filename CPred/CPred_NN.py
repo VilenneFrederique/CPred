@@ -1,14 +1,11 @@
 # Modules
-import os
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow import keras
 from keras import layers
-from argparse import ArgumentParser
-import scipy
-import keras_tuner as kt
+
 
 def prediction_model(input_data, model_directory, output_directory):
     # Preparing data
@@ -47,7 +44,15 @@ def prediction_model(input_data, model_directory, output_directory):
 
     df_predictions = pd.DataFrame(predictions)
 
-    df_predictions.to_csv(f"{output_directory}/Model_predictions.csv")
+    df_predictions.columns = ["Probability_CS+1",
+                              "Probability_CS+2",
+                              "Probability_CS+3",
+                              "Probability_CS+4",
+                              "Probability_CS+5",
+                              "Probability_CS+6",
+                              "Probability_CS+7"]
+
+    df_predictions.to_csv(f"{output_directory}/Model_predictions.csv", index=False)
     return
 
 
@@ -180,6 +185,6 @@ def retraining_model(input_data, model_directory, batch_size, learning_rate, out
     print("Saving model")
 
     # Saving the model
-    modelLSTM.save(f"{output_directory}/final_model.h5")
+    modelLSTM.save(f"{output_directory}/final_model.keras")
 
     return

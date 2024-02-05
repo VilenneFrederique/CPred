@@ -9380,3 +9380,4 @@ Python/venv/Scripts/rst2s5.py
 Python/venv/Scripts/rst2xetex.py
 Python/venv/Scripts/rst2xml.py
 Python/venv/Scripts/rstpep2html.py
+tests/tests.py
