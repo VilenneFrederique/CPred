@@ -5,7 +5,6 @@ width="550" height="300" /> <br/><br/>
 [![GitHub release](https://flat.badgen.net/github/release/VilenneFrederique/CPred)](https://github.com/VilenneFredericonque/CPred/releases/latest/)
 [![PyPI](https://flat.badgen.net/pypi/v/cpred)](https://pypi.org/project/cpred/)
 [![Conda](https://img.shields.io/conda/vn/bioconda/deeplc?style=flat-square)](https://bioconda.github.io/recipes/deeplc/README.html)
-[![GitHub Workflow Status](https://flat.badgen.net/github/checks/compomics/deeplc/)](https://github.com/compomics/deeplc/actions/)
 [![License](https://flat.badgen.net/github/license/VilenneFrederique/cpred)](https://www.apache.org/licenses/LICENSE-2.0)
 
 
@@ -20,8 +19,8 @@ CPred: Charge State Prediction for Modified and Unmodified Peptides in Electrosp
   - [Command line interface](#command-line-interface)
   - [Input files](#input-files)
   - [Prediction models](#prediction-models)
-- [Q&A](#qa)
 - [Citation](#citation)
+- [Q&A](#qa)
 
 ---
 
@@ -82,15 +81,21 @@ As the CPred neural network requires the data in Parquet format, it is firstly s
 ### Command-line interface
 In order to use CPred from the command-line interface, run:
 
+#### Documentation
 ```sh
-CPred FeatureEngineering --i <path/to/data.xlsx>
+python CPred_main.py FeatureEngineering --help
+python CPred_main.py prediction --help
+python CPred_main.py retraining --help
 ```
 
-We highly recommend to add a peptide file with known retention times for
-calibration:
-
+#### Running
+In order to run CPred, all arguments may be specificied as documented.
 ```sh
-CPred --file_pred  <path/to/peptide_file.csv> --file_cal <path/to/peptide_file_with_tr.csv>
+python CPred_main.py FeatureEngineering -i ..\tests\tests_input\test.xlsx
 ```
 
-For an overview of all CLI arguments, run `CPred --help`.
+## Citation
+Enter citation here
+
+## Q&A
+

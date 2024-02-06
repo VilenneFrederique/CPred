@@ -4,9 +4,6 @@ import numpy as np
 import regex as re
 from tensorflow import keras
 
-# Reading data
-# modifications_unimod = pd.read_excel("https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Unimod_modifications.xlsx")
-modifications_unimod = pd.read_excel("CPred/Data/Unimod_modifications.xlsx")
 
 # Dictionaries
 Isoelectric_point = {
@@ -246,6 +243,11 @@ def elemental_comp(dataframe):
 
 
 def apply_modifications(row):
+    # Reading data
+    modifications_unimod = pd.read_excel(
+        "https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Unimod_modifications.xlsx")
+    # modifications_unimod = pd.read_excel("CPred/Data/Unimod_modifications.xlsx")
+
     modifications_string = row['Modifications']
     if pd.isna(modifications_string):
         pass
@@ -399,6 +401,7 @@ def pad_values(dataframe, column_name):
 
 
 def feature_engineering(dataframe):
+    print("Starting with Feature engineering")
     dataframe = peptide_length(dataframe)
     dataframe = tryptic(dataframe)
     dataframe["Tryptic"] = dataframe["Tryptic"].replace([True, False], [1, 0])
@@ -430,4 +433,5 @@ def feature_engineering(dataframe):
     dataframe = elemental_comp_modifications(dataframe)
     dataframe = monoisotopic_mass(dataframe)
     dataframe = average_mass(dataframe)
+    print("Finished with Feature engineering")
     return dataframe

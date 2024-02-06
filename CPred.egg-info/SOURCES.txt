@@ -9,8 +9,8 @@ pyproject.toml
 .idea/vcs.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/inspectionProfiles/profiles_settings.xml
-CPred/CPred.py
 CPred/CPred_NN.py
+CPred/CPred_main.py
 CPred/FeatureEngineering.py
 CPred/__init__.py
 CPred.egg-info/PKG-INFO

@@ -76,7 +76,10 @@ def main(command_line=None):
                             required=True,
                             help="Learning rate used to train the model")
     ## Output
-    retraining.add_argument("-o", "--output", dest="output_directory", required=True, help="Saving the model results")
+    retraining.add_argument("-o", "--output",
+                            dest="output_directory",
+                            required=True,
+                            help="Saving the model results")
 
     ####################################################################################################################
     ####################################################################################################################
