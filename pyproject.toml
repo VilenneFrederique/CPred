@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "CPred"
+version = "0.0.12"
+authors = [
+    {name = "Frédérique Vilenne", email = "frederique.vilenne@uhasselt.be"},
+]
+description = "CPred: A deep learning framework for predicting the charge state distribution in modified and unmodified peptides in ESI"
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License"
+]
+keywords = ["Deep learning", "proteomics", "Charge state"]
+dependencies = [
+    "docutils",
+    "pandas >= 2.2",
+    "numpy >= 1.26",
+    "regex >= 2023.12.25",
+    "openpyxl >= 3.1.2",
+    "tensorflow >= 2.15",
+    "scikit-learn >= 1.4",
+    "keras_tuner >= 1.4.6",
+    "fastparquet >= 2023.10.1"
+]
+
+[project.urls]
+Homepage = "https://github.com/VilenneFrederique/CPred"
+
+[tool.setuptools]
+packages = ["CPred"]
+
