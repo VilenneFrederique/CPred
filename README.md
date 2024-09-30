@@ -1,5 +1,7 @@
-<img src="https://github.com/VilenneFrederique/CPred/raw/master/img/CPred_logo.tif"
+<img src="https://github.com/VilenneFrederique/CPred/blob/01d72bb4e2580eecf14ab63aa03ee67a31ebe235/img/CPred_logo.tif"
 width="550" height="300" /> <br/><br/>
+
+
 
 
 [![PyPI](https://flat.badgen.net/pypi/v/cpred)](https://pypi.org/project/cpred/)
