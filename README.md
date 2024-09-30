@@ -1,5 +1,4 @@
-<img src="https://github.com/VilenneFrederique/CPred/blob/01d72bb4e2580eecf14ab63aa03ee67a31ebe235/img/CPred_logo.tif"
-width="550" height="300" /> <br/><br/>
+<img src="https://github.com/VilenneFrederique/CPred/blob/01d72bb4e2580eecf14ab63aa03ee67a31ebe235/img/CPred_logo.tif" width="550" height="300" /> <br/><br/>
 
 
 
@@ -38,6 +37,7 @@ This also makes it possible to use from the command-line-interface.
 [![install with bioconda](https://flat.badgen.net/badge/install%20with/bioconda/green)](http://bioconda.github.io/recipes/CPred/README.html)
 [![install with pip](https://flat.badgen.net/badge/install%20with/pip/green)](http://bioconda.github.io/recipes/CPred/README.html)
 
+Currently, CPred is solely available in Pypi. Bioconda will be released soon. 
 Install with conda, using the bioconda and conda-forge channels:
 `conda install -c bioconda -c conda-forge CPred`
 
@@ -97,5 +97,6 @@ python CPred_main.py FeatureEngineering -i ..\tests\tests_input\test.xlsx
 ## Citation
 When using CPred for your research, please cite:
 Vilenne, F., Agten, A., Appeltans, S., Ertaylan, G., & Valkenborg, D. (2024). CPred: Charge State Prediction for Modified and Unmodified Peptides in Electrospray Ionization. Analytical Chemistry. https://doi.org/10.1021/acs.analchem.4c01107
+
 ## Q&A
 
