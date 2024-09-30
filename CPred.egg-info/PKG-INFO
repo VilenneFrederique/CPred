@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: CPred
-Version: 0.1.0
+Version: 0.1.1
 Summary: CPred: A deep learning framework for predicting the charge state distribution in modified and unmodified peptides in ESI
 Author-email: Frédérique Vilenne <frederique.vilenne@uhasselt.be>
 License: Apache License
@@ -221,11 +221,10 @@ Requires-Dist: scikit-learn>=1.4
 Requires-Dist: keras_tuner>=1.4.6
 Requires-Dist: fastparquet>=2023.10.1
 
-<img src="/CPred/img/CPred_logo.tif"
+<img src="https://github.com/VilenneFrederique/CPred/raw/master/img/CPred_logo.tif"
 width="550" height="300" /> <br/><br/>
 
 
-[![GitHub release](https://flat.badgen.net/github/release/VilenneFrederique/CPred)](https://github.com/VilenneFrederique/CPred/releases/latest/)
 [![PyPI](https://flat.badgen.net/pypi/v/cpred)](https://pypi.org/project/cpred/)
 [![License](https://flat.badgen.net/github/license/VilenneFrederique/cpred)](https://www.apache.org/licenses/LICENSE-2.0)
 

@@ -1,8 +1,7 @@
-<img src="/CPred/img/CPred_logo.tif"
+<img src="https://github.com/VilenneFrederique/CPred/raw/master/img/CPred_logo.tif"
 width="550" height="300" /> <br/><br/>
 
 
-[![GitHub release](https://flat.badgen.net/github/release/VilenneFrederique/CPred)](https://github.com/VilenneFrederique/CPred/releases/latest/)
 [![PyPI](https://flat.badgen.net/pypi/v/cpred)](https://pypi.org/project/cpred/)
 [![License](https://flat.badgen.net/github/license/VilenneFrederique/cpred)](https://www.apache.org/licenses/LICENSE-2.0)
 
