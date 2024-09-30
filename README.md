@@ -1,8 +1,8 @@
-<img src="https://github.com/VilenneFrederique/CPred/blob/main/img/CPred_logo.png"
+<img src="/CPred/img/CPred_logo.tif"
 width="550" height="300" /> <br/><br/>
 
 
-[![GitHub release](https://flat.badgen.net/github/release/VilenneFrederique/CPred)](https://github.com/VilenneFredericonque/CPred/releases/latest/)
+[![GitHub release](https://flat.badgen.net/github/release/VilenneFrederique/CPred)](https://github.com/VilenneFrederique/CPred/releases/latest/)
 [![PyPI](https://flat.badgen.net/pypi/v/cpred)](https://pypi.org/project/cpred/)
 [![License](https://flat.badgen.net/github/license/VilenneFrederique/cpred)](https://www.apache.org/licenses/LICENSE-2.0)
 
@@ -94,7 +94,7 @@ python CPred_main.py FeatureEngineering -i ..\tests\tests_input\test.xlsx
 ```
 
 ## Citation
-Enter citation here
-
+When using CPred for your research, please cite:
+Vilenne, F., Agten, A., Appeltans, S., Ertaylan, G., & Valkenborg, D. (2024). CPred: Charge State Prediction for Modified and Unmodified Peptides in Electrospray Ionization. Analytical Chemistry. https://doi.org/10.1021/acs.analchem.4c01107
 ## Q&A
 
