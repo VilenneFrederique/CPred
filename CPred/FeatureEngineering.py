@@ -245,7 +245,7 @@ def elemental_comp(dataframe):
 def apply_modifications(row):
     # Reading data
     modifications_unimod = pd.read_excel(
-        "https://raw.githubusercontent.com/VilenneFrederique/CPred/main/CPred/Data/Unimod_modifications.xlsx")
+        "https://raw.githubusercontent.com/VilenneFrederique/CPred/master/CPred/Data/Unimod_modifications.xlsx")
     # modifications_unimod = pd.read_excel("CPred/Data/Unimod_modifications.xlsx")
 
     modifications_string = row['Modifications']
