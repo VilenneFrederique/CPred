@@ -36,3 +36,9 @@ Homepage = "https://github.com/VilenneFrederique/CPred"
 [tool.setuptools]
 packages = ["CPred"]
 
+[tool.setuptools.package-data]
+"CPred" = [
+    "CPred/Data/Models/CPred_model_v1.h5",
+    "CPred/Data/Unimod_modifications.xlsx"
+]
+
