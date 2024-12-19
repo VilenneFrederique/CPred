@@ -24,6 +24,7 @@ dependencies = [
     "regex >= 2023.12.25",
     "openpyxl >= 3.1.2",
     "tensorflow >= 2.15",
+    "keras<3",
     "scikit-learn >= 1.4",
     "keras_tuner >= 1.4.6",
     "fastparquet >= 2023.10.1"
