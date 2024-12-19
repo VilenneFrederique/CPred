@@ -1,0 +1,2 @@
+include CPred/Data/Models/CPred_model_v1.h5
+include CPred/Data/Unimod_modifications.xlsx
