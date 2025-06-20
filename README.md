@@ -34,14 +34,11 @@ The model is available as a Python package, installable through Pypi and conda.
 This also makes it possible to use from the command-line-interface.
 
 ## Installation
-[![install with bioconda](https://flat.badgen.net/badge/install%20with/bioconda/green)](http://bioconda.github.io/recipes/CPred/README.html)
 [![install with pip](https://flat.badgen.net/badge/install%20with/pip/green)](http://bioconda.github.io/recipes/CPred/README.html)
 
 Currently, CPred is solely available in Pypi. Bioconda will be released soon. 
-Install with conda, using the bioconda and conda-forge channels:
-`conda install -c bioconda -c conda-forge CPred`
 
-Or install with pip:
+Install with pip:
 `pip install CPred`
 
 
@@ -54,10 +51,15 @@ from CPred import FeatureEngineering
 from CPred import CPred_NN
 import pandas as pd
 
+# Example peptides
+## Make sure to denote the modifications identical to the notation of the Unimod database
 test_dictionary = {
     "Peptide_sequence": ["PEPTIDE", "EDITPEP"],
     "Modifications": ["1|Carbamidomethyl", "2|Oxidation"]
 }
+
+# In case of multiple modifications within a peptide:
+# Modified_peptide = { "Peptide_sequence": ["AKAAACAGDSKSWDADAFSVEDPVR"], "Modifications": ["2|Acetyl@6|Carbamidomethyl@11|Acetyl"] }
 
 # Turn dictionary into a Pandas dataframe for feature engineering
 test_df = pd.DataFrame(test_dictionary)
