@@ -74,7 +74,7 @@ test_features.to_parquet(f"tests/tests_input/test.parquet", index=False)
 input_data = "tests/tests_input/test.parquet"
 model_directory = "CPred/Data/Models/CPred_model_v1.keras"
 output_directory = "tests/tests_output/"
-CPred_NN.prediction_model(input_model, model_directory, output_directory)
+CPred_NN.prediction_model(input_data, model_directory, output_directory)
 ```
 
 The feature_engineering function returns a pandas dataframe with the generated features. 
