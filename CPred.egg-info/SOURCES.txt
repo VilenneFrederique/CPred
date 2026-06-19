@@ -1,5 +1,6 @@
 .gitattributes
 LICENSE.txt
+MANIFEST.in
 README.md
 pyproject.toml
 .idea/.gitignore
@@ -19,6 +20,7 @@ CPred.egg-info/dependency_links.txt
 CPred.egg-info/requires.txt
 CPred.egg-info/top_level.txt
 CPred/Data/Unimod_modifications.xlsx
+CPred/Data/Models/CPred_model_v1.h5
 Python/venv/Lib/site-packages/_virtualenv.py
 Python/venv/Lib/site-packages/piplicenses.py
 Python/venv/Lib/site-packages/six.py
